@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Blog Application</title>
 </head>
+
 <body>
     {% if user.is_authenticated %}
     <h2>Welcome {{user.username}}!</h2>
 
     <h1>Uploaded Blogs</h1>
     <ul>
-         <div class="container">
+        <div class="container">
             {% for i in blog_list %}
             <li>
                 <a href="{% url 'detailview' i.id %}">
@@ -22,17 +24,17 @@
                 </a>
             </li>
             {% endfor %}
-  </div>
+        </div>
     </ul>
     <center><button><a href="{% url 'newview' %}">Create New Blog</a></button></center>
-    <br>
-        <center><button><a href="{% url 'logout' %}">Logout</a></button></center>
     {% else %}
     <h1>Login</h1>
-    <form method="post"> {% csrf_token %}
+    <form method="post">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Log In</button>
     </form>
     {% endif %}
 </body>
+
 </html>

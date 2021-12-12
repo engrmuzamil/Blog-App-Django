@@ -15,8 +15,10 @@
         <div class="container">
                 <h3>{{ object.title }} || Written By: {{ object.author }}</h3>
                 <p>{{ object.body }}</p> 
-            
         </div>
+    <center><button><a href="{% url 'edit' object.id %}">Edit Blog</a></button></center>
+    <center><button><a href="{% url 'delete' object.id %}">Delete Blog</a></button></center>
+    <center><button><a href="{% url 'home' %}">Go Back To Home</a></button></center>
 
 </body>
 
